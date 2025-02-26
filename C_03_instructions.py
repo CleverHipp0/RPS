@@ -28,9 +28,12 @@ def yes_no(question):
 
 
 def instructions():
+    """Asks and displays instructions"""
 
+    # Asks if the user wants instructions
     want_instructions = yes_no("Do you want instructions? ")
 
+    # Prints instructions if they say yes
     if want_instructions == "yes":
 
         statement_generator("*", 3, "Instructions")
