@@ -1,4 +1,4 @@
-def int_check(question):
+def int_check(question, low):
     """Checks for a number more than 0, accepts <enter> for infinite"""
 
     # Sets up an error message
@@ -16,7 +16,12 @@ def int_check(question):
         # Checks to see if they entered an integer
         try:
             answer = int(answer)
-            return answer
+
+            if answer < low:
+                print(error)
+
+            else:
+                return answer
 
         # if an integer was not inputted it will print the error
         except ValueError:
@@ -27,7 +32,7 @@ def int_check(question):
 # Main routine goes here
 
 # Asks how many game rounds
-game_rounds = int_check("How many rounds do you want to play (press <enter> for infinite)? ")
+game_rounds = int_check("How many rounds do you want to play (press <enter> for infinite)? ", 1)
 
 # loops until "xxx" is entered if the game mode is set to infinite
 if game_rounds == "":
@@ -42,7 +47,12 @@ if game_rounds == "":
 else:
 
     for item in range(0, game_rounds):
+
+        # Sets the round number
+        round_number = item + 1
+
+        # Prints round number
+        print("Round number: ", round_number)
+
+        # Asks for their choice
         choice = input("Choice: ")
-
-
-
